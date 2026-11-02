@@ -24,27 +24,35 @@ HEADER = ['날짜', '이름']
 
 
 class Lock:
-    """동시에 두 사람이 써도 기록이 사라지지 않게 잠근다 (윈도우·맥 공통, 잠금 파일 방식)."""
+    """동시에 두 사람이 써도 기록이 사라지지 않게 잠근다. 운영체제 잠금이라 프로그램이 꺼지면 저절로 풀린다.
+    윈도우는 msvcrt, 맥·리눅스는 fcntl — 둘 다 파이썬 기본 기능."""
     def __enter__(self):
+        if os.path.isdir(LOCK):
+            raise ValueError(f'{os.path.basename(LOCK)} 가 폴더로 있어요. 지우고 다시 해 주세요.')
+        self.f = open(LOCK, 'a+')
         for _ in range(100):                                  # 최대 5초 기다림
             try:
-                os.close(os.open(LOCK, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+                if os.name == 'nt':
+                    import msvcrt
+                    self.f.seek(0)
+                    msvcrt.locking(self.f.fileno(), msvcrt.LK_NBLCK, 1)
+                else:
+                    import fcntl
+                    fcntl.flock(self.f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
                 return self
-            except FileExistsError:
-                try:
-                    if time.time() - os.path.getmtime(LOCK) > 30:   # 30초 넘은 잠금은 비정상 종료가 남긴 것
-                        os.remove(LOCK)
-                        continue
-                except OSError:
-                    pass
+            except OSError:
                 time.sleep(0.05)
+        self.f.close()
         raise ValueError('다른 곳에서 출석부를 쓰는 중이에요. 잠시 뒤 다시 해 주세요.')
 
     def __exit__(self, *a):
         try:
-            os.remove(LOCK)
-        except OSError:
-            pass
+            if os.name == 'nt':
+                import msvcrt
+                self.f.seek(0)
+                msvcrt.locking(self.f.fileno(), msvcrt.LK_UNLCK, 1)
+        finally:
+            self.f.close()                                    # 맥·리눅스는 닫으면 풀린다
 
 
 def load():
@@ -76,6 +84,11 @@ def append(date, name):
         w = csv.writer(f)
         if new:
             w.writerow(HEADER)
+        else:                                                 # 마지막 줄에 줄바꿈이 없으면 붙인 다음에 (앞 기록과 합쳐지지 않게)
+            with open(FILE, 'rb') as r:
+                r.seek(-1, os.SEEK_END)
+                if r.read(1) not in (b'\n', b'\r'):
+                    f.write('\r\n')
         w.writerow([date, name])
         f.flush()
         os.fsync(f.fileno())
