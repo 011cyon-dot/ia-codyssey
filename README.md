@@ -12,6 +12,8 @@
 
 **미션 요구사항과 내가 한 것이 맞는지 대조표 → [mission-check.md](e1-1-workstation/docs/mission-check.md)**
 
+**이걸 왜 하나 — AI 와 무슨 관계인지 → [why-this-matters.md](e1-1-workstation/docs/why-this-matters.md)**
+
 모든 단계는 명령과 출력으로 증명했다. 전체 로그는 [logs/terminal.md](e1-1-workstation/logs/terminal.md) 에 있다.
 
 ## 2. 실행 환경
@@ -139,6 +141,10 @@ $ curl http://localhost:8080
 
 - 토큰·비밀번호·인증 코드는 이 문서에 넣지 않았다.
 - 공용 PC라 실습 뒤 GitHub 로그아웃과 Windows 자격 증명 삭제를 한다.
+
+## 9. 느낀점
+
+처음엔 AI 과정에서 왜 터미널과 Docker 부터 하나 싶었다. 해 보니 AI 프로그램도 결국 어느 컴퓨터에서든 똑같이 돌아가야 쓸 수 있고, 그 바탕이 컨테이너·포트·볼륨·Git 이었다. 자세한 연결은 [why-this-matters.md](e1-1-workstation/docs/why-this-matters.md).
 
 ---
 
