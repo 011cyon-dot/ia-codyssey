@@ -22,7 +22,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | 바인드 마운트: 호스트 파일 수정 전/후 반영 | `before` → `after - changed on host` | [로그 7](../logs/terminal.md#7-바인드-마운트) | ✅ 다시 해서 `before` → `after` 둘 다 확인 |
 | 볼륨: 생성→연결→쓰기→컨테이너 삭제→새 컨테이너에서 확인 | `saved-in-volume` 이 남아 있음 | [로그 8](../logs/terminal.md#8-볼륨) | ✅ |
 | Git: `user.name`, `user.email`, `init.defaultBranch main` → `git config --list` | 셋 다 설정, `--list` 확인 | [로그 9](../logs/terminal.md#9-git-설정) | ✅ |
-| VS Code GitHub 로그인·연동 스크린샷 | — | — | ⬜ |
+| VS Code GitHub 로그인·연동 스크린샷 | 왼쪽 아래 계정 메뉴에 `011cyon-dot (GitHub)` | [사진](../screenshots/vscode-github.jpg) | ✅ |
 
 ## 제출물(README)
 
@@ -55,4 +55,4 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | GitHub SSH 키 | ⬜ |
 
 ## 남은 일
-1. VS Code 왼쪽 아래 계정 아이콘에서 GitHub 로그인 화면 찍기
+필수 항목은 모두 끝. 보너스(Compose·환경 변수 포트·SSH 키)는 선택.

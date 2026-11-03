@@ -36,7 +36,7 @@
 - [x] 바인드 마운트: 호스트 파일 수정이 컨테이너에 바로 반영
 - [x] 볼륨: 컨테이너를 지워도 데이터 유지
 - [x] Git 설정(`user.name`, `user.email`, `init.defaultBranch main`)
-- [ ] VS Code GitHub 연동 스크린샷 ✏️
+- [x] VS Code GitHub 로그인 (`011cyon-dot (GitHub)`) — [사진](e1-1-workstation/screenshots/vscode-github.jpg)
 
 ## 4. 검증 방법과 결과
 
