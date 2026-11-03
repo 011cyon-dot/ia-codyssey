@@ -33,7 +33,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | 실행 환경 (OS·셸·Docker·Git 버전) | ✅ Windows 11 Pro 26H2, Git, Docker 버전 모두 있음 ([winver](../screenshots/winver.png)) |
 | 수행 항목 체크리스트 | ✅ README 3번 |
 | 검증 방법 + 결과 위치 링크 | ✅ README 4번 |
-| 트러블슈팅 2건 이상 (문제→가설→확인→해결) | ✅ 7건 (README 7번) |
+| 트러블슈팅(막혔던 일) 2건 이상 (문제→원인→확인→해결) | ✅ 7건 (README 7번 "막혔던 일과 푼 방법") |
 | 터미널 명령과 출력 기록 | ✅ [logs/terminal.md](../logs/terminal.md) |
 | 토큰·비밀번호·인증코드 마스킹 | ✅ 문서에 없음. 이메일도 가림 |
 

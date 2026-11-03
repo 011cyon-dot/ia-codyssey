@@ -21,7 +21,7 @@
 |:---:|:---:|:---:|:---:|
 | 요구사항 ↔ 내가 한 것 | AI 와 무슨 관계인지 | 화면 출력 해석 | 친 명령과 출력 전부 |
 
-**목차** — [1. 개요](#1-개요) · [2. 실행 환경](#2-실행-환경) · [3. 체크리스트](#3-수행-항목-체크리스트) · [4. 검증](#4-검증-방법과-결과) · [5. Dockerfile](#5-커스텀-이미지-dockerfile) · [6. 내 말로 정리](#6-내-말로-정리) · [7. 트러블슈팅](#7-트러블슈팅) · [8. 보안](#8-보안) · [9. 느낀점](#9-느낀점)
+**목차** — [1. 개요](#1-개요) · [2. 실행 환경](#2-실행-환경) · [3. 한 일 확인표](#3-한-일-확인표) · [4. 검증](#4-검증-방법과-결과) · [5. 내 이미지 만들기](#5-내-이미지-만들기) · [6. 내 말로 정리](#6-내-말로-정리) · [7. 막혔던 일과 푼 방법](#7-막혔던-일과-푼-방법) · [8. 보안](#8-보안) · [9. 느낀점](#9-느낀점)
 
 ---
 
@@ -53,7 +53,7 @@ flowchart LR
 | 🐳 Docker | `Docker version 29.9.2, build a82e528` · Desktop 4.97.0 (WSL2, `linux/x86_64`) | [로그 3](e1-1-workstation/logs/terminal.md#3-docker-점검과-운영) |
 | 🌿 Git | `git version 2.56.0.windows.4` | [로그 9](e1-1-workstation/logs/terminal.md#9-git-설정) |
 
-## 3. 수행 항목 체크리스트
+## 3. 한 일 확인표
 
 | | 항목 | 내용 |
 |:---:|---|---|
@@ -63,7 +63,7 @@ flowchart LR
 | ✅ | Docker 운영 | `pull` `images` `run` `ps` `ps -a` `logs` `stats` `stop` `rm` |
 | ✅ | 첫 컨테이너 | `hello-world` 실행, `ubuntu` 안에서 명령 실행 |
 | ✅ | attach / exec | 나온 뒤 컨테이너 상태 차이 관찰 |
-| ✅ | 커스텀 이미지 | Dockerfile 로 `my-web:1.0` 빌드 |
+| ✅ | 내 이미지 | Dockerfile 로 `my-web:1.0` 빌드 |
 | ✅ | 포트 매핑 | 8080, 8081 두 개 접속 |
 | ✅ | 바인드 마운트 | 호스트 파일 수정이 컨테이너에 바로 반영 |
 | ✅ | 볼륨 | 컨테이너를 지워도 데이터 유지 |
@@ -80,7 +80,7 @@ flowchart LR
 | Docker 동작 | `docker run hello-world` | `Hello from Docker!` | [로그 3](e1-1-workstation/logs/terminal.md#3-docker-점검과-운영) |
 | 컨테이너 상태 | `stop` 뒤 `ps` / `ps -a` | `ps` 에서 사라지고 `ps -a` 에 `Exited (0)` | [로그 3](e1-1-workstation/logs/terminal.md#3-docker-점검과-운영) |
 | attach / exec | 들어갔다 `exit` 뒤 `ps -a` | exec 뒤 `Up`, attach 뒤 `Exited (0)` | [로그 4](e1-1-workstation/logs/terminal.md#4-attach-와-exec) |
-| 커스텀 이미지 | `docker build -t my-web:1.0 .` | `docker images` 에 `my-web:1.0` | [Dockerfile](e1-1-workstation/web/Dockerfile) |
+| 내 이미지 | `docker build -t my-web:1.0 .` | `docker images` 에 `my-web:1.0` | [Dockerfile](e1-1-workstation/web/Dockerfile) |
 | 포트 매핑 | `curl localhost:8080`, `:8081` | 둘 다 `Kim Jongjin workstation` | [로그 6](e1-1-workstation/logs/terminal.md#6-포트-매핑) |
 | 바인드 마운트 | 파일 수정 전후 `curl :8082` | `before` → `after - changed on host` | [로그 7](e1-1-workstation/logs/terminal.md#7-바인드-마운트) |
 | 볼륨 | 쓰기 → 삭제 → 새 컨테이너에서 읽기 | `saved-in-volume` 유지 | [로그 8](e1-1-workstation/logs/terminal.md#8-볼륨) |
@@ -91,9 +91,9 @@ flowchart LR
   <sub>같은 이미지 하나로 띄운 두 컨테이너 — 8080, 8081 모두 같은 페이지</sub>
 </p>
 
-## 5. 커스텀 이미지 (Dockerfile)
+## 5. 내 이미지 만들기
 
-| 베이스 이미지 | 커스텀 포인트 |
+| 바탕 이미지 | 내가 바꾼 것 |
 |---|---|
 | `nginx:alpine` — 가벼운 웹 서버, 정적 페이지 한 장에 알맞음 | nginx 기본 홈페이지를 내 페이지(`index.html`)로 교체 |
 
@@ -125,7 +125,7 @@ curl http://localhost:8080        # <h1>Kim Jongjin workstation</h1>
 > [!TIP]
 > 화면에 나온 출력을 한 줄씩 읽는 법은 **[출력 읽는 법](e1-1-workstation/docs/reading-outputs.md)** 에 따로 정리했다.
 
-## 7. 트러블슈팅
+## 7. 막혔던 일과 푼 방법
 
 | # | 문제 | 원인 | 해결 |
 |:---:|---|---|---|
