@@ -41,8 +41,8 @@
 
 ```mermaid
 flowchart LR
-    H["📝 index.html<br/>내 페이지"] -->|"COPY 로 넣음"| A["📄 Dockerfile<br/>(조리법)"]
-    A -->|docker build| B["📦 이미지 my-web:1.0<br/>(설계도, 안에 내 페이지)"]
+    H["📝 index.html<br/>내 페이지"] -->|"COPY 로 넣음"| A["📄 Dockerfile<br/>(만드는 순서를 적은 글)"]
+    A -->|docker build| B["📦 이미지 my-web:1.0<br/>(설계도 — 내 페이지가 든 틀)"]
     B -->|docker run| C["🟢 컨테이너 web1<br/>(작은 컴퓨터) :80"]
     B -->|docker run| D["🟢 컨테이너 web2<br/>(작은 컴퓨터) :80"]
     E["🌐 브라우저<br/>localhost:8080"] -->|"-p 8080:80"| C
