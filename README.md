@@ -10,6 +10,8 @@
 - **Docker**: 컨테이너를 켜고 끄고, Dockerfile 로 내 웹 서버 이미지를 만들었다. 포트·바인드 마운트·볼륨도 확인했다.
 - **Git/GitHub**: 내 이름표를 설정하고, 결과를 이 저장소에 올렸다.
 
+**미션 요구사항과 내가 한 것이 맞는지 대조표 → [mission-check.md](e1-1-workstation/docs/mission-check.md)**
+
 모든 단계는 명령과 출력으로 증명했다. 전체 로그는 [logs/terminal.md](e1-1-workstation/logs/terminal.md) 에 있다.
 
 ## 2. 실행 환경
@@ -70,7 +72,11 @@ $ curl http://localhost:8080
 <h1>Kim Jongjin workstation</h1>
 ```
 
+> `-p 8080:80` 은 이 PC의 모든 네트워크(`0.0.0.0`)에 문을 연다. 교육장처럼 같은 망을 쓰는 곳에서는 `-p 127.0.0.1:8080:80` 으로 내 PC에서만 열리게 하는 게 안전하다.
+
 ## 6. 내 말로 정리 (평가 질문)
+
+화면에 나온 출력을 하나씩 읽는 법 → **[출력 읽는 법](e1-1-workstation/docs/reading-outputs.md)**
 
 - **절대 경로 vs 상대 경로**
   - 절대 경로는 꼭대기부터 다 적는다. 예: `cd /c` 는 어디서 쳐도 C 드라이브로 간다.
