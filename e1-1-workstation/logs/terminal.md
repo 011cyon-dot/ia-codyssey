@@ -1,6 +1,6 @@
 # 터미널 로그 (2026-11-03, 교육장 공용 PC)
 
-실제로 친 명령과 출력. 사용자·컴퓨터 이름이 붙은 줄 앞부분은 `$`(Git Bash), `C:\>`(cmd), `#`(컨테이너 안) 로 줄였다. `ls -la` 의 사용자 이름은 `user` 로 가렸다. 긴 출력은 `...` 로 줄였다. 명령 끝의 `# ...` 은 그 명령의 뜻을 적은 메모다(실행되지 않는 주석).
+실제로 친 명령과 출력. 사용자·컴퓨터 이름이 붙은 줄 앞부분은 `$`(Git Bash), `C:\>`(cmd), `#`(컨테이너 안) 로 줄였다. `ls -la` 의 사용자 이름은 `user` 로 가렸다. 긴 출력은 `...` 로 줄였다. 명령 끝의 메모는 실행되지 않는 주석이다: Git Bash·컨테이너 줄은 `# 뜻`, cmd(`C:\>`) 줄은 `& REM 뜻` (cmd 는 `#` 를 주석으로 모른다).
 
 ## 1. 터미널 조작
 ```
@@ -46,7 +46,7 @@ $ pwd                                             # 위치 확인
 ## 2. 권한
 Git Bash(윈도우 파일)에서는 chmod 를 해도 바뀌지 않았다(트러블슈팅 ④). 그래서 ubuntu 컨테이너 안에서 했다.
 ```
-C:\> docker run -it --rm ubuntu bash              # 진짜 리눅스에 들어감, 나오면 자동 삭제
+C:\> docker run -it --rm ubuntu bash            & REM 진짜 리눅스에 들어감, 나오면 자동 삭제
 # cd /tmp                                         # 임시 폴더로
 # echo "hello" > memo.txt                         # 파일 만들기
 # ls -l memo.txt                                  # 전: rw-r--r-- (644)
@@ -55,7 +55,7 @@ C:\> docker run -it --rm ubuntu bash              # 진짜 리눅스에 들어�
 # ls -l memo.txt                                  # 후: rw------- (600)
 -rw------- 1 root root 6 Nov  3 07:21 memo.txt
 # exit                                            # 나오기 → 컨테이너 삭제
-C:\> docker run -it --rm ubuntu bash              # 다시 들어감
+C:\> docker run -it --rm ubuntu bash            & REM 다시 들어감
 # mkdir /tmp/docs                                 # 폴더 만들기
 # ls -ld /tmp/docs                                # 전: rwxr-xr-x (755)
 drwxr-xr-x 2 root root 4096 Nov  3 07:22 /tmp/docs
@@ -70,9 +70,9 @@ drwxr-xr-x 2 root root 4096 Nov  3 07:22 /tmp/docs
 
 ## 3. Docker 점검과 운영
 ```
-C:\> docker --version                             # Docker 버전
+C:\> docker --version                           & REM Docker 버전
 Docker version 29.9.2, build a82e528
-C:\> docker info                                  # 엔진 상태 (리눅스 위에서 도는지)
+C:\> docker info                                & REM 엔진 상태 (리눅스 위에서 도는지)
 ...
  Kernel Version: 6.18.54.1-microsoft-standard-WSL2
  Operating System: Docker Desktop
@@ -82,45 +82,45 @@ C:\> docker info                                  # 엔진 상태 (리눅스 위
  Total Memory: 15.25GiB
  Docker Root Dir: /var/lib/docker
 ...
-C:\> docker run hello-world                       # 시험용 이미지 받아 실행
+C:\> docker run hello-world                     & REM 시험용 이미지 받아 실행
 Hello from Docker!
-C:\> docker run -d --name web nginx:alpine        # 뒤에서 켜고 이름은 web
-C:\> docker ps                                    # 켜진 것만
+C:\> docker run -d --name web nginx:alpine      & REM 뒤에서 켜고 이름은 web
+C:\> docker ps                                  & REM 켜진 것만
 CONTAINER ID   IMAGE          ...   STATUS          PORTS     NAMES
 af96bed46b14   nginx:alpine   ...   Up 24 seconds   80/tcp    web
-C:\> docker logs web                              # web 이 남긴 기록
+C:\> docker logs web                            & REM web 이 남긴 기록
 ...
 2026/11/03 07:25:21 [notice] 1#1: start worker process 53
-C:\> docker stats --no-stream web                 # CPU·메모리 한 번만
+C:\> docker stats --no-stream web               & REM CPU·메모리 한 번만
 CONTAINER ID   NAME   CPU %   MEM USAGE / LIMIT     MEM %   NET I/O          BLOCK I/O     PIDS
 af96bed46b14   web    0.00%   20.87MiB / 15.25GiB   0.13%   1.17kB / 126B    0B / 12.3kB   25
-C:\> docker stop web                              # 끄기
+C:\> docker stop web                            & REM 끄기
 web
-C:\> docker ps                                    # 켜진 것 → 없음
+C:\> docker ps                                  & REM 켜진 것 → 없음
 CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES
-C:\> docker ps -a                                 # 꺼진 것까지 → Exited (0)
+C:\> docker ps -a                               & REM 꺼진 것까지 → Exited (0)
 CONTAINER ID   IMAGE          ...   STATUS                      NAMES
 af96bed46b14   nginx:alpine   ...   Exited (0) 12 seconds ago   web
 483722939fe3   hello-world    ...   Exited (0) 12 minutes ago   kind_sanderson
-C:\> docker rm web                                # 지우기 (끈 뒤라 됨)
+C:\> docker rm web                              & REM 지우기 (끈 뒤라 됨)
 web
 ```
 
 ## 4. attach 와 exec
 ```
-C:\> docker run -dit --name box ubuntu bash       # ubuntu 를 뒤에서 켜 두기
-C:\> docker exec -it box bash                     # 새 창으로 들어가기
+C:\> docker run -dit --name box ubuntu bash     & REM ubuntu 를 뒤에서 켜 두기
+C:\> docker exec -it box bash                   & REM 새 창으로 들어가기
 # exit                                            # 나와도 box 는 켜져 있음
-C:\> docker ps                                    # Up → 그대로 켜짐
+C:\> docker ps                                  & REM Up → 그대로 켜짐
 CONTAINER ID   IMAGE    COMMAND   CREATED         STATUS         NAMES
 42405af8af70   ubuntu   "bash"    2 minutes ago   Up 2 minutes   box
-C:\> docker attach box                            # 원래 창에 붙기
+C:\> docker attach box                          & REM 원래 창에 붙기
 # echo "attach"                                   # 안에서 명령
 attach
 # exit                                            # 나오면 box 가 꺼짐
-C:\> docker ps -a                                 # Exited → 꺼짐 확인
+C:\> docker ps -a                               & REM Exited → 꺼짐 확인
 42405af8af70   ubuntu   "bash"   2 minutes ago   Exited (0) 8 seconds ago   box
-C:\> docker rm box                                # 정리
+C:\> docker rm box                              & REM 정리
 box
 ```
 
