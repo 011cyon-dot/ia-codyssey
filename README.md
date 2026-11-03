@@ -37,12 +37,17 @@
 
 ```mermaid
 flowchart LR
-    A["📄 Dockerfile<br/>(조리법)"] -->|docker build| B["📦 이미지 my-web:1.0<br/>(설계도)"]
+    H["📝 index.html<br/>내 페이지"] -->|"COPY 로 넣음"| A["📄 Dockerfile<br/>(조리법)"]
+    A -->|docker build| B["📦 이미지 my-web:1.0<br/>(설계도, 안에 내 페이지)"]
     B -->|docker run| C["🟢 컨테이너 web1<br/>(작은 컴퓨터) :80"]
     B -->|docker run| D["🟢 컨테이너 web2<br/>(작은 컴퓨터) :80"]
     E["🌐 브라우저<br/>localhost:8080"] -->|"-p 8080:80"| C
     F["🌐 브라우저<br/>localhost:8081"] -->|"-p 8081:80"| D
+    C -.->|"내 페이지를 돌려줌"| E
+    D -.->|"내 페이지를 돌려줌"| F
 ```
+
+> 브라우저에 뜬 **"Kim Jongjin workstation"** 은 Dockerfile 의 `COPY` 줄로 이미지 안에 넣은 내 `index.html` 이다. 브라우저 → 포트 → 컨테이너 → 이미지 → Dockerfile 로 거슬러 올라가면 이어져 있다.
 
 ## 2. 실행 환경
 
