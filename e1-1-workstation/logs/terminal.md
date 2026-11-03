@@ -161,7 +161,7 @@ $ cd /c/workstation/site
 $ echo "<h1>before</h1>" > index.html
 $ MSYS_NO_PATHCONV=1 docker run -d --name bind -p 8082:80 -v "C:/workstation/site:/usr/share/nginx/html" nginx:alpine
 $ curl http://localhost:8082
-<h1>before</h1>                      ✏️ 다시 찍은 출력으로 확인
+<h1>before</h1>
 $ echo "<h1>after - changed on host</h1>" > index.html
 $ curl http://localhost:8082
 <h1>after - changed on host</h1>
