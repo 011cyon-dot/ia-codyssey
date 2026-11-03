@@ -19,9 +19,9 @@
 
 <div align="center">
 
-| 📋 [미션 대조표](e1-1-workstation/docs/mission-check.md) | 💡 [이걸 왜 하나](e1-1-workstation/docs/why-this-matters.md) | 🔍 [출력 읽는 법](e1-1-workstation/docs/reading-outputs.md) | 🖥️ [터미널 로그](e1-1-workstation/logs/terminal.md) |
-|:---:|:---:|:---:|:---:|
-| 요구사항 ↔ 내가 한 것 | AI 와 무슨 관계인지 | 화면 출력 해석 | 친 명령과 출력 전부 |
+| 📋 [미션 대조표](e1-1-workstation/docs/mission-check.md) | 💡 [이걸 왜 하나](e1-1-workstation/docs/why-this-matters.md) | 🔍 [출력 읽는 법](e1-1-workstation/docs/reading-outputs.md) | 🖥️ [터미널 로그](e1-1-workstation/logs/terminal.md) | 📝 [내 명령어 노트](e1-1-workstation/docs/my-notes.md) |
+|:---:|:---:|:---:|:---:|:---:|
+| 요구사항 ↔ 내가 한 것 | AI 와 무슨 관계인지 | 화면 출력 해석 | 친 명령과 출력 전부 | 내 메모 + 💬 코멘트 |
 
 **목차** — [1. 개요](#1-개요) · [2. 실행 환경](#2-실행-환경) · [3. 한 일 확인표](#3-한-일-확인표) · [4. 검증](#4-검증-방법과-결과) · [5. 내 이미지 만들기](#5-내-이미지-만들기) · [6. 내 말로 정리](#6-내-말로-정리) · [7. 막혔던 일과 푼 방법](#7-막혔던-일과-푼-방법) · [8. 보안](#8-보안) · [9. 느낀점](#9-느낀점)
 
