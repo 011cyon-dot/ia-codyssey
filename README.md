@@ -15,3 +15,7 @@ python attend.py count                # 사람별 횟수
 맥은 `python3`. 기록은 `attendance.csv`(엑셀로 열림) — 이름이 들어가서 git 에는 올리지 않는다.
 school run ok 11-02
 home run ok 11-02
+
+## E1-1 개발 워크스테이션 (작업실 꾸미기) — 11-03 미션
+
+터미널 · Docker · Git 세팅과 검증 기록 → **[e1-1-workstation/README.md](e1-1-workstation/README.md)**
