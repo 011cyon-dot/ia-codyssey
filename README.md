@@ -18,7 +18,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| OS | Windows 11 (교육장 공용 PC) ✏️ `winver` 로 확인 |
+| OS | Windows 11 Pro 26H2 (OS 빌드 26300.9711), 교육장 공용 PC — [winver 화면](e1-1-workstation/screenshots/winver.png) |
 | 셸·터미널 | Git Bash (MINGW64 UCRT64), 명령 프롬프트(cmd) |
 | Docker | `Docker version 29.9.2, build a82e528` · Docker Desktop 4.97.0 (WSL2 기반, `OSType: linux`, `x86_64`) |
 | Git | git version 2.56.0.windows.4 |
@@ -49,7 +49,7 @@
 | 컨테이너 상태 | `stop` 뒤 `ps` / `ps -a` | `ps` 에서 사라지고 `ps -a` 에 `Exited (0)` | [로그 3](e1-1-workstation/logs/terminal.md#3-docker-점검과-운영) |
 | attach/exec | 각각 들어갔다 `exit` 뒤 `ps -a` | exec 뒤 `Up`, attach 뒤 `Exited (0)` | [로그 4](e1-1-workstation/logs/terminal.md#4-attach-와-exec) |
 | 커스텀 이미지 | `docker build -t my-web:1.0 .` | `docker images` 에 `my-web:1.0` | [Dockerfile](e1-1-workstation/web/Dockerfile) |
-| 포트 매핑 | `curl http://localhost:8080`, `:8081` | 둘 다 `<h1>Kim Jongjin workstation</h1>` | [로그 6](e1-1-workstation/logs/terminal.md#6-포트-매핑) ✏️ 브라우저 사진 |
+| 포트 매핑 | `curl http://localhost:8080`, `:8081` | 둘 다 `<h1>Kim Jongjin workstation</h1>` | [로그 6](e1-1-workstation/logs/terminal.md#6-포트-매핑), [브라우저 사진](e1-1-workstation/screenshots/browser-8080-8081.png) |
 | 바인드 마운트 | 파일 수정 전후 `curl :8082` | `before` → `after - changed on host` | [로그 7](e1-1-workstation/logs/terminal.md#7-바인드-마운트) |
 | 볼륨 | 쓰기 → 컨테이너 삭제 → 새 컨테이너에서 읽기 | `saved-in-volume` 유지 | [로그 8](e1-1-workstation/logs/terminal.md#8-볼륨) |
 | Git 설정 | `git config --list` | user.name, user.email, init.defaultbranch=main | [로그 9](e1-1-workstation/logs/terminal.md#9-git-설정) |

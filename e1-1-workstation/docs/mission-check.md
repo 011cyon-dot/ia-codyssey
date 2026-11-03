@@ -18,7 +18,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | ubuntu 컨테이너에 들어가 `ls`·`echo` | 들어가서 `cd`, `echo`, `mkdir`, `chmod`, `ls -l` 실행 | [로그 2](../logs/terminal.md#2-권한) | ✅ |
 | attach 와 exec 차이 관찰 | exec 뒤 `Up`, attach 뒤 `Exited (0)` | [로그 4](../logs/terminal.md#4-attach-와-exec) | ✅ |
 | 커스텀 이미지: 베이스·커스텀 포인트·빌드/실행 로그 | (A)안: `nginx:alpine` + 내 `index.html` 로 교체 → `my-web:1.0` | [Dockerfile](../web/Dockerfile), [로그 5](../logs/terminal.md#5-커스텀-이미지-빌드) | ✅ |
-| 포트 매핑 `-p 호스트:컨테이너`, 브라우저(주소창 포함) 또는 curl 증거 | 8080, 8081 두 개. curl 로 둘 다 확인 | [로그 6](../logs/terminal.md#6-포트-매핑) | ✅ (curl) · 🔶 브라우저 사진 없음 |
+| 포트 매핑 `-p 호스트:컨테이너`, 브라우저(주소창 포함) 또는 curl 증거 | 8080, 8081 두 개. curl 로 둘 다 확인 | [로그 6](../logs/terminal.md#6-포트-매핑), [브라우저 사진](../screenshots/browser-8080-8081.png) | ✅ |
 | 바인드 마운트: 호스트 파일 수정 전/후 반영 | `before` → `after - changed on host` | [로그 7](../logs/terminal.md#7-바인드-마운트) | 🔶 `before` 출력은 오타로 한 번 실패, 다시 찍은 사진 필요 |
 | 볼륨: 생성→연결→쓰기→컨테이너 삭제→새 컨테이너에서 확인 | `saved-in-volume` 이 남아 있음 | [로그 8](../logs/terminal.md#8-볼륨) | ✅ |
 | Git: `user.name`, `user.email`, `init.defaultBranch main` → `git config --list` | 셋 다 설정, `--list` 확인 | [로그 9](../logs/terminal.md#9-git-설정) | ✅ |
@@ -30,7 +30,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 |---|---|
 | 공개 저장소, 링크 하나로 전부 확인 | ✅ `011cyon-dot/ia-codyssey` (Public), 첫 화면에 미션 README |
 | 프로젝트 개요 | ✅ README 1번 |
-| 실행 환경 (OS·셸·Docker·Git 버전) | 🔶 Git·Docker 버전 있음. 윈도우 버전(`winver`)만 비어 있음 |
+| 실행 환경 (OS·셸·Docker·Git 버전) | ✅ Windows 11 Pro 26H2, Git, Docker 버전 모두 있음 ([winver](../screenshots/winver.png)) |
 | 수행 항목 체크리스트 | ✅ README 3번 |
 | 검증 방법 + 결과 위치 링크 | ✅ README 4번 |
 | 트러블슈팅 2건 이상 (문제→가설→확인→해결) | ✅ 7건 (README 7번) |
@@ -55,7 +55,5 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | GitHub SSH 키 | ⬜ |
 
 ## 남은 일
-1. 학교 PC에서 `winver` 화면 찍기
-2. 브라우저 주소창 `localhost:8080`, `localhost:8081` 화면 찍기
-3. 바인드 마운트 `before` → `after` 를 다시 해서 찍기
-4. VS Code 왼쪽 아래 계정 아이콘에서 GitHub 로그인 화면 찍기
+1. 바인드 마운트 `before` → `after` 를 다시 해서 찍기
+2. VS Code 왼쪽 아래 계정 아이콘에서 GitHub 로그인 화면 찍기

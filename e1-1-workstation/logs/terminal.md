@@ -153,7 +153,7 @@ $ curl http://localhost:8080
 $ curl http://localhost:8081
 <h1>Kim Jongjin workstation</h1>
 ```
-✏️ 브라우저 주소창 `localhost:8080`, `localhost:8081` 스크린샷
+브라우저 주소창으로도 확인: [browser-8080-8081.png](../screenshots/browser-8080-8081.png)
 
 ## 7. 바인드 마운트
 ```
