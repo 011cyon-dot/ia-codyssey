@@ -20,7 +20,7 @@
 |---|---|
 | OS | Windows 11 (교육장 공용 PC) ✏️ `winver` 로 확인 |
 | 셸·터미널 | Git Bash (MINGW64 UCRT64), 명령 프롬프트(cmd) |
-| Docker | Docker Desktop 4.97.0 (WSL2 기반, `OSType: linux`, `x86_64`) ✏️ `docker --version` 출력 |
+| Docker | `Docker version 29.9.2, build a82e528` · Docker Desktop 4.97.0 (WSL2 기반, `OSType: linux`, `x86_64`) |
 | Git | git version 2.56.0.windows.4 |
 
 ## 3. 수행 항목 체크리스트

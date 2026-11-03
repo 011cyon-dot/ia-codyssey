@@ -55,7 +55,6 @@ C:\> docker run -it --rm ubuntu bash
 # ls -l memo.txt
 -rw------- 1 root root 6 Nov  3 07:21 memo.txt
 # exit
-
 C:\> docker run -it --rm ubuntu bash
 # mkdir /tmp/docs
 # ls -ld /tmp/docs
@@ -71,6 +70,8 @@ drwxr-xr-x 2 root root 4096 Nov  3 07:22 /tmp/docs
 
 ## 3. Docker 점검과 운영
 ```
+C:\> docker --version
+Docker version 29.9.2, build a82e528
 C:\> docker info
 ...
  Kernel Version: 6.18.54.1-microsoft-standard-WSL2
@@ -83,7 +84,6 @@ C:\> docker info
 ...
 C:\> docker run hello-world
 Hello from Docker!
-...
 C:\> docker run -d --name web nginx:alpine
 C:\> docker ps
 CONTAINER ID   IMAGE          ...   STATUS          PORTS     NAMES

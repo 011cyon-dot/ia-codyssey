@@ -12,7 +12,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 |---|---|---|---|
 | 터미널: `pwd`, `ls -la`(숨김 포함), `cd`, `mkdir`, `cp`, `mv`(이동·이름변경), `rm`, `cat`, `touch` | 전부 실행. `.secret` 숨김 파일이 `ls -la` 에서만 보이는 것 확인 | [로그 1](../logs/terminal.md#1-터미널-조작) | ✅ |
 | 권한: 파일 1개·폴더 1개 chmod 전/후 비교 (`ls -l`) | 파일 644→600, 폴더 755→700→755. Git Bash 에서는 안 바뀌어서 ubuntu 컨테이너 안에서 함 | [로그 2](../logs/terminal.md#2-권한) | ✅ |
-| Docker 점검: `docker --version`, `docker info` | 둘 다 실행. `docker info` 출력은 기록함 | [로그 3](../logs/terminal.md#3-docker-점검과-운영) | 🔶 이 PC의 `--version` 출력 사진 없음 |
+| Docker 점검: `docker --version`, `docker info` | 둘 다 실행. `Docker version 29.9.2, build a82e528` | [로그 3](../logs/terminal.md#3-docker-점검과-운영) | ✅ |
 | Docker 운영: `images`, `pull`, `run`, `stop`, `ps`, `ps -a`, `logs`, `stats` | 전부 실행, 끝에 `rm` 까지 | [로그 3](../logs/terminal.md#3-docker-점검과-운영) | ✅ |
 | `hello-world` 실행 | `Hello from Docker!` | [로그 3](../logs/terminal.md#3-docker-점검과-운영) | ✅ |
 | ubuntu 컨테이너에 들어가 `ls`·`echo` | 들어가서 `cd`, `echo`, `mkdir`, `chmod`, `ls -l` 실행 | [로그 2](../logs/terminal.md#2-권한) | ✅ |
@@ -30,7 +30,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 |---|---|
 | 공개 저장소, 링크 하나로 전부 확인 | ✅ `011cyon-dot/ia-codyssey` (Public), 첫 화면에 미션 README |
 | 프로젝트 개요 | ✅ README 1번 |
-| 실행 환경 (OS·셸·Docker·Git 버전) | 🔶 Git 버전은 있음. 윈도우 버전(`winver`)과 `docker --version` 은 비어 있음 |
+| 실행 환경 (OS·셸·Docker·Git 버전) | 🔶 Git·Docker 버전 있음. 윈도우 버전(`winver`)만 비어 있음 |
 | 수행 항목 체크리스트 | ✅ README 3번 |
 | 검증 방법 + 결과 위치 링크 | ✅ README 4번 |
 | 트러블슈팅 2건 이상 (문제→가설→확인→해결) | ✅ 7건 (README 7번) |
@@ -55,7 +55,7 @@ E1-1 미션 문서의 요구사항을 하나씩 놓고, 실제로 한 것과 증
 | GitHub SSH 키 | ⬜ |
 
 ## 남은 일
-1. 학교 PC에서 `winver` 와 `docker --version` 화면 찍기
+1. 학교 PC에서 `winver` 화면 찍기
 2. 브라우저 주소창 `localhost:8080`, `localhost:8081` 화면 찍기
 3. 바인드 마운트 `before` → `after` 를 다시 해서 찍기
 4. VS Code 왼쪽 아래 계정 아이콘에서 GitHub 로그인 화면 찍기
