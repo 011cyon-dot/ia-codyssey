@@ -144,7 +144,7 @@ $ curl http://localhost:8080
 
 ## 9. 느낀점
 
-처음엔 AI 과정에서 왜 터미널과 Docker 부터 하나 싶었다. 해 보니 AI 프로그램도 결국 어느 컴퓨터에서든 똑같이 돌아가야 쓸 수 있고, 그 바탕이 컨테이너·포트·볼륨·Git 이었다. 자세한 연결은 [why-this-matters.md](e1-1-workstation/docs/why-this-matters.md).
+처음엔 AI 과정에서 왜 터미널과 Docker 부터 하나 싶었다. 솔직히 실습 중에는 컨테이너가 뭔지도 모르고 따라 쳤다. 명령이 성공한 것과 내가 이해한 것은 달랐다. 끝나고 하나씩 물어 보니 AI 프로그램도 결국 어느 컴퓨터에서든 똑같이 돌아가야 쓸 수 있고, 그 바탕이 컨테이너·포트·볼륨·Git 이었다. 모르고 쓴 말을 내 말로 다시 정리한 것과 AI 와의 연결은 [why-this-matters.md](e1-1-workstation/docs/why-this-matters.md).
 
 ---
 
